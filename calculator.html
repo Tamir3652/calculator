@@ -52,7 +52,7 @@
         <button onclick="eight()" id="eight" class="button blackGray">8</button>
         <button onclick="nine()" id="nine" class="button blackGray">9</button>
         <button onclick="multiple()" id="multiple" class="button orange">
-          X
+          x
         </button>
         <button onclick="four()" id="four" class="button blackGray">4</button>
         <button onclick="five()" id="five" class="button blackGray">5</button>
@@ -62,7 +62,7 @@
         <button onclick="two()" id="two" class="button blackGray">2</button>
         <button onclick="three()" id="three" class="button blackGray">3</button>
         <button onclick="plus()" id="plus" class="button orange">+</button>
-        <button class="button blackGray"></button>
+        <button onclick="swapSign()" id="swapSign" class="button blackGray">&plusmn;</button>
         <button onclick="zero()" id="zero" class="button blackGray">0</button>
         <button onclick="dot()" id="dot" class="button blackGray">.</button>
         <button onclick="end()" id="end" class="button orange">=</button>
@@ -72,69 +72,343 @@
     <script>
       let a = 0;
       let x = 0;
+      let y = 0;
+      let operator = "";
+      let decimal = 0;
 
-      const content = document.getElementById(content0);
+
+      const content = document.getElementById("content0");
+
+      const calculate = () => {
+  if (operator === "+") {
+    y = Number((y + x).toFixed(10));
+  } else if (operator === "-") {
+    y = Number((y - x).toFixed(10));
+  } else if (operator === "*") {
+    y = Number((y * x).toFixed(10));
+  } else if (operator === "/") {
+    y = Number((y / x).toFixed(10));
+  }
+};
 
       const one = () => {
-        x = x * 10 + 1;
-        content0.textContent = x;
+         if (decimal === 0) {
+    if (a === 0) x = 0;
+    x = x * 10 + 1;
+  } else {
+    x = x + 1 / (decimal * 10);
+    decimal = decimal * 10;
+  }
+  a = 1;
+  content.textContent = x;
       };
+
+
       const two = () => {
-        x = x * 10 + 2;
-        content0.textContent = x;
+        if (decimal === 0) {
+    if (a === 0) x = 0;
+    x = x * 10 + 2;
+  } else {
+    x = x + 2 / (decimal * 10);
+    decimal = decimal * 10;
+  }
+  a = 1;
+  content.textContent = x;
       };
+
+
       const three = () => {
-        x = x * 10 + 3;
-        content0.textContent = x;
-      };
+        if (decimal === 0) {
+    if (a === 0) x = 0;
+    x = x * 10 + 3;
+  } else {
+    x = x + 3 / (decimal * 10);
+    decimal = decimal * 10;
+  }
+  a = 1;
+  content.textContent = x;}
+
+
       const four = () => {
-        x = x * 10 + 4;
-        content0.textContent = x;
+       if (decimal === 0) {
+    if (a === 0) x = 0;
+    x = x * 10 + 4;
+  } else {
+    x = x + 4 / (decimal * 10);
+    decimal = decimal * 10;
+  }
+  a = 1;
+  content.textContent = x;
       };
+
+
       const five = () => {
-        x = x * 10 + 5;
-        content0.textContent = x;
+        if (decimal === 0) {
+    if (a === 0) x = 0;
+    x = x * 10 + 5;
+  } else {
+    x = x + 5 / (decimal * 10);
+    decimal = decimal * 10;
+  }
+  a = 1;
+  content.textContent = x;
       };
+
+      
       const six = () => {
-        x = x * 10 + 6;
-        content0.textContent = x;
+        if (decimal === 0) {
+    if (a === 0) x = 0;
+    x = x * 10 + 6;
+  } else {
+    x = x + 6 / (decimal * 10);
+    decimal = decimal * 10;
+  }
+  a = 1;
+  content.textContent = x;
       };
+
+
       const seven = () => {
-        x = x * 10 + 7;
-        content0.textContent = x;
+        if (decimal === 0) {
+    if (a === 0) x = 0;
+    x = x * 10 + 7;
+  } else {
+    x = x + 7 / (decimal * 10);
+    decimal = decimal * 10;
+  }
+  a = 1;
+  content.textContent = x;
       };
+
+
       const eight = () => {
-        x = x * 10 + 8;
-        content0.textContent = x;
+        if (decimal === 0) {
+    if (a === 0) x = 0;
+    x = x * 10 + 8;
+  } else {
+    x = x + 8 / (decimal * 10);
+    decimal = decimal * 10;
+  }
+  a = 1;
+  content.textContent = x;
       };
+
+
       const nine = () => {
-        x = x * 10 + 9;
-        content0.textContent = x;
+        if (decimal === 0) {
+    if (a === 0) x = 0;
+    x = x * 10 + 9;
+  } else {
+    x = x + 9 / (decimal * 10);
+    decimal = decimal * 10;
+  }
+  a = 1;
+  content.textContent = x;
       };
+
+
       const zero = () => {
-        x = x * 10 + 0;
-        content0.textContent = x;
+        if (decimal === 0) {
+    if (a === 0) x = 0;
+    x = x * 10 + 0;
+  } else {
+    x = x + 0 / (decimal * 10);
+    decimal = decimal * 10;
+  }
+  a = 1;
+  content.textContent = x;
       };
+
+
       const del = () => {
-        x = 0;
-        content0.textContent = x;
+        if (x===0){
+          y=0;
+          a=0;
+          operator = "";
+        } else {x=0;}
+        decimal=0;
+        content.textContent = x;
       };
+
+      
       const back = () => {
-        x = (x - (x % 10)) / 10;
-        content0.textContent = x;
+        if (decimal > 1) {
+          x = x * decimal ;
+          x = (x - (x % 10)) / 10;
+          decimal = decimal / 10;
+          x = x/decimal ;
+          if (decimal === 1) {
+    decimal = 0;}
+  } else if (decimal === 1) {
+    decimal = 0;}
+    else  {
+    x = (x - (x % 10)) / 10;
+  }
+  content.textContent = x;
       };
+
+
+
       const plus = () => {
-        content0.textContent = x;
-      };
-      const minus = () => {
-        content0.textContent = x;
-      };
-      const divide = () => {
-        content0.textContent = x;
-      };
-      const multiple = () => {
-        content0.textContent = x;
-      };
+        if (operator === "/" && x === 0 && a === 1) {
+  content.textContent = "Error";
+  x = 0;
+  y = 0;
+  a = 0;
+  operator = "";
+  decimal = 0;
+  return;
+}
+  if (a === 1) {
+    if (operator === "") {
+      y = x;
+    } else {
+      calculate();
+    }
+    content.textContent = y;
+    x = 0;
+    a = 0;
+  } else if (operator === "") {
+    y = x;
+  }
+  decimal=0;
+  operator = "+";
+};
+
+const minus = () => {
+  if (operator === "/" && x === 0 && a === 1) {
+  content.textContent = "Error";
+  x = 0;
+  y = 0;
+  a = 0;
+  operator = "";
+  decimal = 0;
+  return;
+}
+  if (a === 1) {
+    if (operator === "") {
+      y = x;
+    } else {
+      calculate();
+    }
+    content.textContent = y;
+    x = 0;
+    a = 0;
+  } else if (operator === "") {
+    y = x;
+  }
+  decimal=0;
+  operator = "-";
+};
+
+const multiple = () => {
+  if (operator === "/" && x === 0 && a === 1) {
+  content.textContent = "Error";
+  x = 0;
+  y = 0;
+  a = 0;
+  operator = "";
+  decimal = 0;
+  return;
+}
+  if (a === 1) {
+    if (operator === "") {
+      y = x;
+    } else {
+      calculate();
+    }
+    content.textContent = y;
+    x = 0;
+    a = 0;
+  } else if (operator === "") {
+    y = x;
+  }
+  decimal=0;
+  operator = "*";
+};
+
+const divide = () => {
+  if (operator === "/" && x === 0 && a === 1) {
+  content.textContent = "Error";
+  x = 0;
+  y = 0;
+  a = 0;
+  operator = "";
+  decimal = 0;
+  return;
+}
+  if (a === 1) {
+    if (operator === "") {
+      y = x;
+    } else {
+      calculate();
+    }
+    content.textContent = y;
+    x = 0;
+    a = 0;
+  } else if (operator === "") {
+    y = x;
+  }
+  decimal=0;
+  operator = "/";
+};
+
+const end = () => {
+  if (operator === "/" && x === 0 && a === 1) {
+  content.textContent = "Error";
+  x = 0;
+  y = 0;
+  a = 0;
+  operator = "";
+  decimal = 0;
+  return;
+}
+  if (operator !== "" && a === 1) {
+    calculate();
+    x = y;
+    content.textContent = x;
+    y = 0;
+    operator = "";
+    a = 0;
+  }
+  decimal=0;
+};
+
+const persent = () => {
+  if (a === 1) {
+    if (operator === "+" || operator === "-") {
+      x = y * x / 100;
+    } else {
+      x = x / 100;
+    }
+
+    x = Number(x.toFixed(10));
+    decimal = 0;
+    content.textContent = x;
+  }
+};
+
+const dot = () => {
+  if (decimal === 0) {
+    if (a === 0) {
+      x = 0;
+      a = 1;
+      content.textContent = "0.";
+    } else {
+      content.textContent = x + ".";
+    }
+
+    decimal = 1;
+  }
+
+};
+
+const swapSign = () => {
+    x = x * -1;
+    content.textContent = x;
+  };
+
+  
     </script>
   </body>
 </html>

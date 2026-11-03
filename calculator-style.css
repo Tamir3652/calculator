@@ -33,7 +33,7 @@
 .content {
   color: white;
   font-size: 72px;
-  font-weight: 500px;
+  font-weight: 500;
   display: flex;
   justify-content: end;
   padding: 0 20px;
@@ -43,4 +43,33 @@
 }
 .orange {
   background-color: #ff9500;
+}
+
+.button {
+  transition:
+    transform 0.12s ease,
+    background-color 0.12s ease,
+    color 0.12s ease;
+  cursor: pointer;
+}
+
+.button:not(.blackGray):not(.orange) {
+  color: #000;
+}
+
+.button:active {
+  transform: scale(1.1);
+}
+
+.button.blackGray:active {
+  background-color: #737373;
+}
+
+.button.orange:active {
+  background-color: #fff;
+  color: #ff9500;
+}
+
+.button:not(.blackGray):not(.orange):active {
+  background-color: #d6d6d6;
 }
