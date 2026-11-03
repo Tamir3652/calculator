@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./calculator-style.css" />
+  </head>
+  <body>
+    <div class="main">
+      <div id="content0" class="content">0</div>
+      <div class="buttons">
+        <button onclick="back()" id="back" class="button">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="36"
+            height="36"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-circle-arrow-left preview-icon"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <path d="m12 8-4 4 4 4" />
+            <path d="M16 12H8" />
+          </svg>
+        </button>
+        <button onclick="del()" id="delete" class="button">AC</button>
+        <button onclick="persent()" id="persent" class="button">%</button>
+        <button onclick="divide()" id="divide" class="button orange">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="36"
+            height="36"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="3"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-divide preview-icon"
+          >
+            <circle cx="12" cy="6" r="1" />
+            <line x1="5" x2="19" y1="12" y2="12" />
+            <circle cx="12" cy="18" r="1" />
+          </svg>
+        </button>
+        <button onclick="seven()" id="seven" class="button blackGray">7</button>
+        <button onclick="eight()" id="eight" class="button blackGray">8</button>
+        <button onclick="nine()" id="nine" class="button blackGray">9</button>
+        <button onclick="multiple()" id="multiple" class="button orange">
+          X
+        </button>
+        <button onclick="four()" id="four" class="button blackGray">4</button>
+        <button onclick="five()" id="five" class="button blackGray">5</button>
+        <button onclick="six()" id="six" class="button blackGray">6</button>
+        <button onclick="minus()" id="minus" class="button orange">-</button>
+        <button onclick="one()" id="one" class="button blackGray">1</button>
+        <button onclick="two()" id="two" class="button blackGray">2</button>
+        <button onclick="three()" id="three" class="button blackGray">3</button>
+        <button onclick="plus()" id="plus" class="button orange">+</button>
+        <button class="button blackGray"></button>
+        <button onclick="zero()" id="zero" class="button blackGray">0</button>
+        <button onclick="dot()" id="dot" class="button blackGray">.</button>
+        <button onclick="end()" id="end" class="button orange">=</button>
+      </div>
+    </div>
+
+    <script>
+      let a = 0;
+      let x = 0;
+
+      const content = document.getElementById(content0);
+
+      const one = () => {
+        x = x * 10 + 1;
+        content0.textContent = x;
+      };
+      const two = () => {
+        x = x * 10 + 2;
+        content0.textContent = x;
+      };
+      const three = () => {
+        x = x * 10 + 3;
+        content0.textContent = x;
+      };
+      const four = () => {
+        x = x * 10 + 4;
+        content0.textContent = x;
+      };
+      const five = () => {
+        x = x * 10 + 5;
+        content0.textContent = x;
+      };
+      const six = () => {
+        x = x * 10 + 6;
+        content0.textContent = x;
+      };
+      const seven = () => {
+        x = x * 10 + 7;
+        content0.textContent = x;
+      };
+      const eight = () => {
+        x = x * 10 + 8;
+        content0.textContent = x;
+      };
+      const nine = () => {
+        x = x * 10 + 9;
+        content0.textContent = x;
+      };
+      const zero = () => {
+        x = x * 10 + 0;
+        content0.textContent = x;
+      };
+      const del = () => {
+        x = 0;
+        content0.textContent = x;
+      };
+      const back = () => {
+        x = (x - (x % 10)) / 10;
+        content0.textContent = x;
+      };
+      const plus = () => {
+        content0.textContent = x;
+      };
+      const minus = () => {
+        content0.textContent = x;
+      };
+      const divide = () => {
+        content0.textContent = x;
+      };
+      const multiple = () => {
+        content0.textContent = x;
+      };
+    </script>
+  </body>
+</html>

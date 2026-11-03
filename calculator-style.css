@@ -1,0 +1,46 @@
+.main {
+  width: 400px;
+  height: 850px;
+  background-color: #000000;
+  position: absolute;
+  top: 50px;
+  left: 100px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.button {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background-color: #a5a5a5;
+  color: white;
+  font-size: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+}
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  height: 465px;
+  margin: 40px 0;
+}
+.content {
+  color: white;
+  font-size: 72px;
+  font-weight: 500px;
+  display: flex;
+  justify-content: end;
+  padding: 0 20px;
+}
+.blackGray {
+  background-color: #505050;
+}
+.orange {
+  background-color: #ff9500;
+}
