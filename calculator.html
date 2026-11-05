@@ -77,6 +77,7 @@
       let y = 0;
       let operator = "";
       let decimal = 0;
+      let error = "";
 
       const content = document.getElementById("content0");
 
@@ -92,124 +93,166 @@
         }
       };
 
+      const operatorCheck = () => {
+        if (operator === "/" && x === 0 && a === 1) {
+          error = "Error";
+          x = 0;
+          y = 0;
+          a = 0;
+          operator = "";
+          decimal = 0;
+          return true;
+        }
+        return false;
+      };
+
       const one = () => {
         if (decimal === 0) {
-          if (a === 0) x = 0;
+          if (a === 0) {
+            x = 0;
+            content.textContent = "";
+          }
           x = x * 10 + 1;
         } else {
           x = x + 1 / (decimal * 10);
           decimal = decimal * 10;
         }
         a = 1;
-        content.textContent = x;
+        content.textContent = content.textContent + "1";
       };
 
       const two = () => {
         if (decimal === 0) {
-          if (a === 0) x = 0;
+          if (a === 0) {
+            x = 0;
+            content.textContent = "";
+          }
           x = x * 10 + 2;
         } else {
           x = x + 2 / (decimal * 10);
           decimal = decimal * 10;
         }
         a = 1;
-        content.textContent = x;
+        content.textContent = content.textContent + "2";
       };
 
       const three = () => {
         if (decimal === 0) {
-          if (a === 0) x = 0;
+          if (a === 0) {
+            x = 0;
+            content.textContent = "";
+          }
           x = x * 10 + 3;
         } else {
           x = x + 3 / (decimal * 10);
           decimal = decimal * 10;
         }
         a = 1;
-        content.textContent = x;
+        content.textContent = content.textContent + "3";
       };
 
       const four = () => {
         if (decimal === 0) {
-          if (a === 0) x = 0;
+          if (a === 0) {
+            x = 0;
+            content.textContent = "";
+          }
           x = x * 10 + 4;
         } else {
           x = x + 4 / (decimal * 10);
           decimal = decimal * 10;
         }
         a = 1;
-        content.textContent = x;
+        content.textContent = content.textContent + "4";
       };
 
       const five = () => {
         if (decimal === 0) {
-          if (a === 0) x = 0;
+          if (a === 0) {
+            x = 0;
+            content.textContent = "";
+          }
           x = x * 10 + 5;
         } else {
           x = x + 5 / (decimal * 10);
           decimal = decimal * 10;
         }
         a = 1;
-        content.textContent = x;
+        content.textContent = content.textContent + "5";
       };
 
       const six = () => {
         if (decimal === 0) {
-          if (a === 0) x = 0;
+          if (a === 0) {
+            x = 0;
+            content.textContent = "";
+          }
           x = x * 10 + 6;
         } else {
           x = x + 6 / (decimal * 10);
           decimal = decimal * 10;
         }
         a = 1;
-        content.textContent = x;
+        content.textContent = content.textContent + "6";
       };
 
       const seven = () => {
         if (decimal === 0) {
-          if (a === 0) x = 0;
+          if (a === 0) {
+            x = 0;
+            content.textContent = "";
+          }
           x = x * 10 + 7;
         } else {
           x = x + 7 / (decimal * 10);
           decimal = decimal * 10;
         }
         a = 1;
-        content.textContent = x;
+        content.textContent = content.textContent + "7";
       };
 
       const eight = () => {
         if (decimal === 0) {
-          if (a === 0) x = 0;
+          if (a === 0) {
+            x = 0;
+            content.textContent = "";
+          }
           x = x * 10 + 8;
         } else {
           x = x + 8 / (decimal * 10);
           decimal = decimal * 10;
         }
         a = 1;
-        content.textContent = x;
+        content.textContent = content.textContent + "8";
       };
 
       const nine = () => {
         if (decimal === 0) {
-          if (a === 0) x = 0;
+          if (a === 0) {
+            x = 0;
+            content.textContent = "";
+          }
           x = x * 10 + 9;
         } else {
           x = x + 9 / (decimal * 10);
           decimal = decimal * 10;
         }
         a = 1;
-        content.textContent = x;
+        content.textContent = content.textContent + "9";
       };
 
       const zero = () => {
         if (decimal === 0) {
-          if (a === 0) x = 0;
+          if (a === 0) {
+            x = 0;
+          }
           x = x * 10 + 0;
         } else {
           x = x + 0 / (decimal * 10);
           decimal = decimal * 10;
+          content.textContent = content.textContent + "0";
         }
         a = 1;
-        content.textContent = x;
       };
 
       const del = () => {
@@ -221,7 +264,7 @@
           x = 0;
         }
         decimal = 0;
-        content.textContent = x;
+        content.textContent = "0";
       };
 
       const back = () => {
@@ -242,117 +285,98 @@
       };
 
       const plus = () => {
-        if (operator === "/" && x === 0 && a === 1) {
-          content.textContent = "Error";
-          x = 0;
-          y = 0;
-          a = 0;
-          operator = "";
-          decimal = 0;
-          return;
-        }
-        if (a === 1) {
-          if (operator === "") {
+        operatorCheck();
+        if (error === "Error") {
+        } else {
+          if (a === 1) {
+            if (operator === "") {
+              y = x;
+            } else {
+              calculate();
+            }
+            x = 0;
+            a = 0;
+          } else if (operator === "") {
             y = x;
-          } else {
-            calculate();
           }
-          content.textContent = y;
-          x = 0;
-          a = 0;
-        } else if (operator === "") {
-          y = x;
         }
         decimal = 0;
         operator = "+";
+        content.textContent = content.textContent + "+";
       };
 
       const minus = () => {
-        if (operator === "/" && x === 0 && a === 1) {
-          content.textContent = "Error";
-          x = 0;
-          y = 0;
-          a = 0;
-          operator = "";
-          decimal = 0;
-          return;
-        }
-        if (a === 1) {
-          if (operator === "") {
+        operatorCheck();
+        if (error === "Error") {
+        } else {
+          if (a === 1) {
+            if (operator === "") {
+              y = x;
+            } else {
+              calculate();
+            }
+            x = 0;
+            a = 0;
+          } else if (operator === "") {
             y = x;
-          } else {
-            calculate();
           }
-          content.textContent = y;
-          x = 0;
-          a = 0;
-        } else if (operator === "") {
-          y = x;
         }
         decimal = 0;
-        operator = "-";
+        operator = "+";
+        content.textContent = content.textContent + "-";
       };
 
       const multiple = () => {
-        if (operator === "/" && x === 0 && a === 1) {
-          content.textContent = "Error";
-          x = 0;
-          y = 0;
-          a = 0;
-          operator = "";
-          decimal = 0;
-          return;
-        }
-        if (a === 1) {
-          if (operator === "") {
+        operatorCheck();
+        if (error === "Error") {
+        } else {
+          if (a === 1) {
+            if (operator === "") {
+              y = x;
+            } else {
+              calculate();
+            }
+            x = 0;
+            a = 0;
+          } else if (operator === "") {
             y = x;
-          } else {
-            calculate();
           }
-          content.textContent = y;
-          x = 0;
-          a = 0;
-        } else if (operator === "") {
-          y = x;
         }
         decimal = 0;
-        operator = "*";
+        operator = "+";
+        content.textContent = content.textContent + "*";
       };
 
       const divide = () => {
-        if (operator === "/" && x === 0 && a === 1) {
-          content.textContent = "Error";
-          x = 0;
-          y = 0;
-          a = 0;
-          operator = "";
-          decimal = 0;
-          return;
-        }
-        if (a === 1) {
-          if (operator === "") {
+        operatorCheck();
+        if (error === "Error") {
+        } else {
+          if (a === 1) {
+            if (operator === "") {
+              y = x;
+            } else {
+              calculate();
+            }
+            x = 0;
+            a = 0;
+          } else if (operator === "") {
             y = x;
-          } else {
-            calculate();
           }
-          content.textContent = y;
-          x = 0;
-          a = 0;
-        } else if (operator === "") {
-          y = x;
         }
         decimal = 0;
-        operator = "/";
+        operator = "+";
+        content.textContent = content.textContent + "/";
       };
 
       const end = () => {
-        if (operator === "/" && x === 0 && a === 1) {
+        if (error === "Error") {
           content.textContent = "Error";
           x = 0;
           y = 0;
           a = 0;
           operator = "";
           decimal = 0;
+          error = "";
           return;
         }
         if (operator !== "" && a === 1) {
