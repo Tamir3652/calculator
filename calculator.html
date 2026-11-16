@@ -30,7 +30,7 @@
         </button>
         <button onclick="del()" id="delete" class="button">AC</button>
         <button onclick="persent()" id="persent" class="button">%</button>
-        <button onclick="divide()" id="divide" class="button orange">
+        <button onclick="Operator('/')" id="divide" class="button orange">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="36"
@@ -48,380 +48,53 @@
             <circle cx="12" cy="18" r="1" />
           </svg>
         </button>
-        <button onclick="seven()" id="seven" class="button blackGray">7</button>
-        <button onclick="eight()" id="eight" class="button blackGray">8</button>
-        <button onclick="nine()" id="nine" class="button blackGray">9</button>
-        <button onclick="multiple()" id="multiple" class="button orange">
+        <button onclick="clickButton(7)" id="seven" class="button blackGray">
+          7
+        </button>
+        <button onclick="clickButton(8)" id="eight" class="button blackGray">
+          8
+        </button>
+        <button onclick="clickButton(9)" id="nine" class="button blackGray">
+          9
+        </button>
+        <button onclick="Operator('x')" id="multiple" class="button orange">
           x
         </button>
-        <button onclick="four()" id="four" class="button blackGray">4</button>
-        <button onclick="five()" id="five" class="button blackGray">5</button>
-        <button onclick="six()" id="six" class="button blackGray">6</button>
-        <button onclick="minus()" id="minus" class="button orange">-</button>
-        <button onclick="one()" id="one" class="button blackGray">1</button>
-        <button onclick="two()" id="two" class="button blackGray">2</button>
-        <button onclick="three()" id="three" class="button blackGray">3</button>
-        <button onclick="plus()" id="plus" class="button orange">+</button>
+        <button onclick="clickButton(4)" id="four" class="button blackGray">
+          4
+        </button>
+        <button onclick="clickButton(5)" id="five" class="button blackGray">
+          5
+        </button>
+        <button onclick="clickButton(6)" id="six" class="button blackGray">
+          6
+        </button>
+        <button onclick="Operator('-')" id="minus" class="button orange">
+          -
+        </button>
+        <button onclick="clickButton(1)" id="one" class="button blackGray">
+          1
+        </button>
+        <button onclick="clickButton(2)" id="two" class="button blackGray">
+          2
+        </button>
+        <button onclick="clickButton(3)" id="three" class="button blackGray">
+          3
+        </button>
+        <button onclick="Operator('+')" id="plus" class="button orange">
+          +
+        </button>
         <button onclick="swapSign()" id="swapSign" class="button blackGray">
           &plusmn;
         </button>
-        <button onclick="zero()" id="zero" class="button blackGray">0</button>
+        <button onclick="clickButton(0)" id="zero" class="button blackGray">
+          0
+        </button>
         <button onclick="dot()" id="dot" class="button blackGray">.</button>
         <button onclick="end()" id="end" class="button orange">=</button>
       </div>
     </div>
 
-    <script>
-      let a = 0;
-      let x = 0;
-      let y = 0;
-      let operator = "";
-      let decimal = 0;
-      let error = "";
-
-      const content = document.getElementById("content0");
-
-      const calculate = () => {
-        if (operator === "+") {
-          y = Number((y + x).toFixed(10));
-        } else if (operator === "-") {
-          y = Number((y - x).toFixed(10));
-        } else if (operator === "*") {
-          y = Number((y * x).toFixed(10));
-        } else if (operator === "/") {
-          y = Number((y / x).toFixed(10));
-        }
-      };
-
-      const operatorCheck = () => {
-        if (operator === "/" && x === 0 && a === 1) {
-          error = "Error";
-          x = 0;
-          y = 0;
-          a = 0;
-          operator = "";
-          decimal = 0;
-          return true;
-        }
-        return false;
-      };
-
-      const one = () => {
-        if (decimal === 0) {
-          if (a === 0) {
-            x = 0;
-            content.textContent = "";
-          }
-          x = x * 10 + 1;
-        } else {
-          x = x + 1 / (decimal * 10);
-          decimal = decimal * 10;
-        }
-        a = 1;
-        content.textContent = content.textContent + "1";
-      };
-
-      const two = () => {
-        if (decimal === 0) {
-          if (a === 0) {
-            x = 0;
-            content.textContent = "";
-          }
-          x = x * 10 + 2;
-        } else {
-          x = x + 2 / (decimal * 10);
-          decimal = decimal * 10;
-        }
-        a = 1;
-        content.textContent = content.textContent + "2";
-      };
-
-      const three = () => {
-        if (decimal === 0) {
-          if (a === 0) {
-            x = 0;
-            content.textContent = "";
-          }
-          x = x * 10 + 3;
-        } else {
-          x = x + 3 / (decimal * 10);
-          decimal = decimal * 10;
-        }
-        a = 1;
-        content.textContent = content.textContent + "3";
-      };
-
-      const four = () => {
-        if (decimal === 0) {
-          if (a === 0) {
-            x = 0;
-            content.textContent = "";
-          }
-          x = x * 10 + 4;
-        } else {
-          x = x + 4 / (decimal * 10);
-          decimal = decimal * 10;
-        }
-        a = 1;
-        content.textContent = content.textContent + "4";
-      };
-
-      const five = () => {
-        if (decimal === 0) {
-          if (a === 0) {
-            x = 0;
-            content.textContent = "";
-          }
-          x = x * 10 + 5;
-        } else {
-          x = x + 5 / (decimal * 10);
-          decimal = decimal * 10;
-        }
-        a = 1;
-        content.textContent = content.textContent + "5";
-      };
-
-      const six = () => {
-        if (decimal === 0) {
-          if (a === 0) {
-            x = 0;
-            content.textContent = "";
-          }
-          x = x * 10 + 6;
-        } else {
-          x = x + 6 / (decimal * 10);
-          decimal = decimal * 10;
-        }
-        a = 1;
-        content.textContent = content.textContent + "6";
-      };
-
-      const seven = () => {
-        if (decimal === 0) {
-          if (a === 0) {
-            x = 0;
-            content.textContent = "";
-          }
-          x = x * 10 + 7;
-        } else {
-          x = x + 7 / (decimal * 10);
-          decimal = decimal * 10;
-        }
-        a = 1;
-        content.textContent = content.textContent + "7";
-      };
-
-      const eight = () => {
-        if (decimal === 0) {
-          if (a === 0) {
-            x = 0;
-            content.textContent = "";
-          }
-          x = x * 10 + 8;
-        } else {
-          x = x + 8 / (decimal * 10);
-          decimal = decimal * 10;
-        }
-        a = 1;
-        content.textContent = content.textContent + "8";
-      };
-
-      const nine = () => {
-        if (decimal === 0) {
-          if (a === 0) {
-            x = 0;
-            content.textContent = "";
-          }
-          x = x * 10 + 9;
-        } else {
-          x = x + 9 / (decimal * 10);
-          decimal = decimal * 10;
-        }
-        a = 1;
-        content.textContent = content.textContent + "9";
-      };
-
-      const zero = () => {
-        if (decimal === 0) {
-          if (a === 0) {
-            x = 0;
-          }
-          x = x * 10 + 0;
-        } else {
-          x = x + 0 / (decimal * 10);
-          decimal = decimal * 10;
-          content.textContent = content.textContent + "0";
-        }
-        a = 1;
-      };
-
-      const del = () => {
-        if (x === 0) {
-          y = 0;
-          a = 0;
-          operator = "";
-        } else {
-          x = 0;
-        }
-        decimal = 0;
-        content.textContent = "0";
-      };
-
-      const back = () => {
-        if (decimal > 1) {
-          x = x * decimal;
-          x = (x - (x % 10)) / 10;
-          decimal = decimal / 10;
-          x = x / decimal;
-          if (decimal === 1) {
-            decimal = 0;
-          }
-        } else if (decimal === 1) {
-          decimal = 0;
-        } else {
-          x = (x - (x % 10)) / 10;
-        }
-        content.textContent = x;
-      };
-
-      const plus = () => {
-        operatorCheck();
-        if (error === "Error") {
-        } else {
-          if (a === 1) {
-            if (operator === "") {
-              y = x;
-            } else {
-              calculate();
-            }
-            x = 0;
-            a = 0;
-          } else if (operator === "") {
-            y = x;
-          }
-        }
-        decimal = 0;
-        operator = "+";
-        content.textContent = content.textContent + "+";
-      };
-
-      const minus = () => {
-        operatorCheck();
-        if (error === "Error") {
-        } else {
-          if (a === 1) {
-            if (operator === "") {
-              y = x;
-            } else {
-              calculate();
-            }
-            x = 0;
-            a = 0;
-          } else if (operator === "") {
-            y = x;
-          }
-        }
-        decimal = 0;
-        operator = "+";
-        content.textContent = content.textContent + "-";
-      };
-
-      const multiple = () => {
-        operatorCheck();
-        if (error === "Error") {
-        } else {
-          if (a === 1) {
-            if (operator === "") {
-              y = x;
-            } else {
-              calculate();
-            }
-            x = 0;
-            a = 0;
-          } else if (operator === "") {
-            y = x;
-          }
-        }
-        decimal = 0;
-        operator = "+";
-        content.textContent = content.textContent + "*";
-      };
-
-      const divide = () => {
-        operatorCheck();
-        if (error === "Error") {
-        } else {
-          if (a === 1) {
-            if (operator === "") {
-              y = x;
-            } else {
-              calculate();
-            }
-            x = 0;
-            a = 0;
-          } else if (operator === "") {
-            y = x;
-          }
-        }
-        decimal = 0;
-        operator = "+";
-        content.textContent = content.textContent + "/";
-      };
-
-      const end = () => {
-        if (error === "Error") {
-          content.textContent = "Error";
-          x = 0;
-          y = 0;
-          a = 0;
-          operator = "";
-          decimal = 0;
-          error = "";
-          return;
-        }
-        if (operator !== "" && a === 1) {
-          calculate();
-          x = y;
-          content.textContent = x;
-          y = 0;
-          operator = "";
-          a = 0;
-        }
-        decimal = 0;
-      };
-
-      const persent = () => {
-        if (a === 1) {
-          if (operator === "+" || operator === "-") {
-            x = (y * x) / 100;
-          } else {
-            x = x / 100;
-          }
-
-          x = Number(x.toFixed(10));
-          decimal = 0;
-          content.textContent = x;
-        }
-      };
-
-      const dot = () => {
-        if (decimal === 0) {
-          if (a === 0) {
-            x = 0;
-            a = 1;
-            content.textContent = "0.";
-          } else {
-            content.textContent = x + ".";
-          }
-
-          decimal = 1;
-        }
-      };
-
-      const swapSign = () => {
-        x = x * -1;
-        content.textContent = x;
-      };
-    </script>
+    <script src="main.js"></script>
   </body>
 </html>

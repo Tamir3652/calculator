@@ -32,11 +32,12 @@
 }
 .content {
   color: white;
+  width: 350px;
   font-size: 72px;
   font-weight: 500;
-  display: flex;
-  justify-content: end;
+  text-align: right;
   padding: 0 20px;
+  overflow-x: auto;
 }
 .blackGray {
   background-color: #505050;
