@@ -83,7 +83,7 @@ const back = () => {
   } else {
     x = (x - (x % 10)) / 10;
   }
-  k = contentText.length - 1;
+  let k = contentText.length - 1;
   contentText.splice(k, 1);
   print();
 };
